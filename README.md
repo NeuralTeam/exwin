@@ -11,4 +11,4 @@ Therefore, we solved this problem in our own way.
 You can contribute to this package.
 
 # Examples
-Look in the examples folder for some drawing examples.
+Look in the [examples](https://github.com/NeuralTeam/exdraw/tree/master/examples) folder for some drawing examples.
