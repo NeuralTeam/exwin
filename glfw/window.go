@@ -1,7 +1,7 @@
 package glfw
 
 import (
-	"exdraw/glfw/gl"
+	"github.com/NeuralTeam/exdraw/glfw/gl"
 	"github.com/go-gl/glfw/v3.3/glfw"
 	"github.com/lxn/win"
 	"time"

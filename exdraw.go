@@ -1,7 +1,7 @@
 package exdraw
 
 import (
-	"exdraw/glfw"
+	"github.com/NeuralTeam/exdraw/glfw"
 	"reflect"
 	"runtime"
 	"time"
