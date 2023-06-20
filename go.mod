@@ -1,4 +1,4 @@
-module exdraw
+module github.com/NeuralTeam/exdraw
 
 go 1.19
 
