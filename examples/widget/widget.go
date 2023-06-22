@@ -4,7 +4,7 @@ import (
 	_ "embed"
 	"fmt"
 	"github.com/NeuralTeam/exdraw"
-	"github.com/NeuralTeam/exdraw/glfw"
+	"github.com/NeuralTeam/exdraw/pkg/glfw"
 	"github.com/go-vgo/robotgo"
 	"github.com/tfriedel6/canvas"
 	"image/color"
