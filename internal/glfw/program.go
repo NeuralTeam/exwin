@@ -5,11 +5,11 @@ import (
 )
 
 type Program interface {
-	Canvas() *canvas.Canvas
-	CanvasBounds(x, y, w, h int)
+	GetCanvas() *canvas.Canvas
+	SetCanvasBounds(x, y, w, h int)
 	Append(action func() any, once bool) (result any)
 }
 
-func (g *Glfw) Program() Program {
+func (g *Glfw) GetProgram() Program {
 	return g.program
 }

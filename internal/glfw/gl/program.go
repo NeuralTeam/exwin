@@ -18,13 +18,6 @@ type Program struct {
 	canvas  *canvas.Canvas
 }
 
-func (p *Program) init() {
-	if err := gl.Init(); err != nil {
-		log.Fatalf("failed to initialize gl package: %v\n", err.Error())
-	}
-	gl.Enable(gl.MULTISAMPLE)
-}
-
 func (p *Program) newCanvas(width, height int) {
 	if backend, err := goglbackend.New(0, 0, width, height, nil); err == nil {
 		p.backend = backend
@@ -36,18 +29,8 @@ func (p *Program) newCanvas(width, height int) {
 
 func New(width, height int) *Program {
 	p := new(Program)
-	p.init()
 	p.newCanvas(width, height)
 	return p
-}
-
-func (p *Program) Canvas() *canvas.Canvas {
-	return p.canvas
-}
-
-func (p *Program) CanvasBounds(x, y, w, h int) {
-	p.backend.SetBounds(x, y, w, h)
-	p.canvas = canvas.New(p.backend)
 }
 
 func (p *Program) Frame(window *glfw.Window) *Program {
@@ -73,15 +56,22 @@ func (p *Program) Append(action func() any, once bool) (result any) {
 			p.returns.Delete(name)
 		}()
 	}
-	t := time.NewTicker(time.Nanosecond)
-	defer t.Stop()
 	for {
 		select {
-		case <-t.C:
+		case <-time.After(time.Nanosecond):
 			if r, ok := p.returns.Load(name); ok {
 				result = r
 				return
 			}
 		}
 	}
+}
+
+func (p *Program) GetCanvas() *canvas.Canvas {
+	return p.canvas
+}
+
+func (p *Program) SetCanvasBounds(x, y, w, h int) {
+	p.backend.SetBounds(x, y, w, h)
+	p.canvas = canvas.New(p.backend)
 }
