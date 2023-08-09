@@ -4,7 +4,6 @@ import (
 	_ "embed"
 	"fmt"
 	"github.com/NeuralTeam/exdraw"
-	"github.com/NeuralTeam/exdraw/pkg/glfw"
 	"github.com/go-vgo/robotgo"
 	"github.com/tfriedel6/canvas"
 	"image/color"
@@ -14,17 +13,17 @@ import (
 //go:embed Roboto-Light.ttf
 var robotoLight []byte
 
-func timeWidget() (window *glfw.Glfw) {
+func timeWidget() (window exdraw.Window) {
 	width, height := robotgo.GetScaleSize()
 	w, h := float64(width/7), float64(height/4)
 
-	window = exdraw.Window(int(w), int(h)).
-		Position(int(w/4), int(h/4)).
-		SwapInterval(100).
-		ZOrder(1)
+	window = exdraw.NewWindow(int(w), int(h)).
+		SetPosition(int(w/4), int(h/4)).
+		SetSwapInterval(100).
+		SetZOrder(1)
 
-	p := window.Program()
-	c := p.Canvas()
+	p := window.GetProgram()
+	c := p.GetCanvas()
 
 	if font, err := c.LoadFont(robotoLight); err == nil {
 		c.SetFont(font, 100.0)
