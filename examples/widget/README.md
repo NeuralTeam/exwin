@@ -1,2 +1,2 @@
 ### Preview
-![image](https://github.com/NeuralTeam/exdraw/assets/58384167/3331c96a-ec51-46f3-b972-760929a34e09)
+![image](https://github.com/NeuralTeam/exwin/assets/58384167/f5f58ba7-98c3-4cc7-94fe-ebe687b7a6af)
