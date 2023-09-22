@@ -1,9 +1,8 @@
 module github.com/NeuralTeam/exwin
 
-go 1.19
+go 1.21.1
 
 require (
-	github.com/NeuralTeam/kernel v0.0.0-20230809152640-a8199fddf626
 	github.com/go-gl/gl v0.0.0-20211210172815-726fda9656d6
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20221017161538-93cebf72946b
 	github.com/go-vgo/robotgo v0.100.10
@@ -12,9 +11,7 @@ require (
 )
 
 require (
-	github.com/Binject/debug v0.0.0-20230508195519-26db73212a7a // indirect
 	github.com/StackExchange/wmi v1.2.1 // indirect
-	github.com/awgh/rawreader v0.0.0-20200626064944-56820a9c6da4 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/otiai10/gosseract v2.2.1+incompatible // indirect
