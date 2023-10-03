@@ -2,8 +2,8 @@ package window
 
 import (
 	"github.com/go-gl/glfw/v3.3/glfw"
-	"log"
-	"time"
+	"os"
+	"os/signal"
 )
 
 func SetHints() {
@@ -21,13 +21,14 @@ func SetHints() {
 
 func init() {
 	if err := glfw.Init(); err != nil {
-		log.Fatalf("failed to initialize glfw package: %v\n", err.Error())
+		panic(err)
 	}
 	go func() {
 		defer glfw.Terminate()
-		for range time.Tick(time.Hour) {
-			continue
-		}
+
+		interrupt := make(chan os.Signal, 1)
+		signal.Notify(interrupt, os.Interrupt)
+		<-interrupt
 	}()
 	SetHints()
 }

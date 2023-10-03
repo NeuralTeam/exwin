@@ -2,7 +2,6 @@ package backend
 
 import (
 	"github.com/go-gl/gl/all-core/gl"
-	"log"
 )
 
 func SetCapabilities() {
@@ -14,7 +13,7 @@ func SetCapabilities() {
 
 func init() {
 	if err := gl.Init(); err != nil {
-		log.Fatalf("failed to initialize gl package: %v\n", err.Error())
+		panic(err)
 	}
 	SetCapabilities()
 }
